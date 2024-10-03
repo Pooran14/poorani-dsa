@@ -1,23 +1,17 @@
 def print_board(board):
-    """Prints the current state of the board."""
     for row in board:
         print(" | ".join(row))
         print()
 
-
 def have_won(board, player):
-    """Checks if the given player has won."""
-    # Check rows
     for row in board:
         if row.count(player) == len(row):
             return True
 
-    # Check columns
     for col in range(len(board[0])):
         if all(row[col] == player for row in board):
             return True
 
-    # Check diagonals
     if all(board[i][i] == player for i in range(len(board))):
         return True
     if all(board[i][len(board) - i - 1] == player for i in range(len(board))):
@@ -27,7 +21,7 @@ def have_won(board, player):
 
 
 def main():
-    """Runs the Tic-Tac-Toe game."""
+  
     board = [[' ' for _ in range(3)] for _ in range(3)]
     players = ['X', 'O']
     current_player = 0
